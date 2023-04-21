@@ -11,8 +11,8 @@ def validword(s):
     else:
         return ''
 # replace stdin for development
-df = pd.read_csv(sys.stdin)
-#df = pd.read_csv('twitter_MBTI.csv')
+#df = pd.read_csv(sys.stdin)
+df = pd.read_csv('twitter_MBTI.csv')
 # Iterate over each row in the csv
 # file using reader object
 # NB in production would replace with a streaming equivalent
@@ -22,4 +22,4 @@ for i,row in df.iterrows():
             # ignore urls and handles
             w=validword(word)
             if w != '':
-                print(f'{w}\t{row["label"]}\t1')
+                print(f'{w}.{row["label"]}\t1')
