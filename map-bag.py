@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# map-bag.py
+# map incoming csv into word,mbti type tuples
+# nb using pandas dataframe for prototyping purposes
 import sys
 import re
 import pandas as pd
@@ -22,4 +25,5 @@ for i,row in df.iterrows():
             # ignore urls and handles
             w=validword(word)
             if w != '':
-                print(f'{w}\t{row["label"]}\t1')
+                #print(f'{row["label"]}\t{w}\t1')
+                print(f'{w}\t{row["label"]}\t{w}\t1')

@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# map-bag.py
+# map incoming csv into word,mbti type tuples
+# nb using pandas dataframe for prototyping purposes
 import sys
 import re
 import pandas as pd
@@ -11,8 +14,8 @@ def validword(s):
     else:
         return ''
 # replace stdin for development
-#df = pd.read_csv(sys.stdin)
-df = pd.read_csv('twitter_MBTI.csv')
+df = pd.read_csv(sys.stdin)
+#df = pd.read_csv('twitter_MBTI.csv')
 # Iterate over each row in the csv
 # file using reader object
 # NB in production would replace with a streaming equivalent
@@ -22,4 +25,5 @@ for i,row in df.iterrows():
             # ignore urls and handles
             w=validword(word)
             if w != '':
-                print(f'{w}.{row["label"]}\t1')
+                #print(f'{row["label"]}\t{w}\t1')
+                print(f'{row["label"]}.{w}\t1')
