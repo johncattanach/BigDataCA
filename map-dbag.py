@@ -5,13 +5,22 @@
 import sys
 import re
 import pandas as pd
+from nltk.stem import WordNetLemmatizer
+# do these one time
+#import nltk
+#nltk.download('wordnet')
+#nltk.download('omw-1.4')
+
+lemmatizer = WordNetLemmatizer()
+
 def validword(s):    
     if s.isascii():  # ignore emtocicon and non-english text
-        if re.match(r'^http|^@',s):
+        # ignore url/handle/3 or more key mashing
+        if re.match(r'^http|^@|(.)\1{2,}',s):
             return ''
         # only allow letters
         elif re.match(r'^[a-zA-Z]*$',s):
-            return s.lower()
+            return lemmatizer.lemmatize(s.lower())
         else:
             return ''
     else:
