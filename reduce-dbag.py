@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# reduce-bag.py
+# reduce-dbag.py
 import sys
 
 curr_word = None

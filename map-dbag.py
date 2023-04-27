@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# map-bag.py
+# map-dbag.py
 # map incoming csv into word,mbti type tuples
 # nb using pandas dataframe for prototyping purposes
 import sys
